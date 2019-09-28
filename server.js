@@ -32,6 +32,9 @@ mongoose.connect(dbConfig.url, { useNewUrlParser: true })
 require('./app/route/devotion.route.js')(app);
 require('./app/route/church.lesson.route.js')(app);
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'index.html'));
+}); 
 // Create a Server
 var server = app.listen(8080, function(){
 	var host = server.address().address
