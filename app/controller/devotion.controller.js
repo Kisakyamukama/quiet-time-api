@@ -55,7 +55,7 @@ exports.findOne = (req, res) => {
 	   });
    }
     return res.status(500).send({
-      message: "Error retrieving devotion with id " + req.params.devotionId
+      message: "Error retrieving dev=otion with id " + req.params.devotionId
     });
   });
 };

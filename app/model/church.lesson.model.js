@@ -1,18 +1,17 @@
 const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var devotionSchema = new Schema({
-  title: String,
+var churchLessonSchema = new Schema({
+  theme: String,
   author: String,
-  body: String,
-  published: Boolean,
+  lessons: String,
   updated_date: { type: Date, default: Date.now},
 
 });
 
 // change _id to id
 
-devotionSchema.method('toClient', function(){
+churchLessonSchema.method('toClient', function(){
    var obj = this.toObject();
 
    // Rename fields
@@ -23,4 +22,4 @@ devotionSchema.method('toClient', function(){
 });
 
 
-module.exports = mongoose.model('Devotion', devotionSchema);
+module.exports = mongoose.model('ChurchLesson', churchLessonSchema);

@@ -4,21 +4,22 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json())
 
 const cors = require('cors')
-const corsOptions = {
-	origin:'http://localhost:8081',
-	optionSuccessStatus: 200
-}
+// const corsOptions = {
+// 	origin:'http://localhost:8080/api/devotion',
+// 	optionSuccessStatus: 200
+// }
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 
-// Configuration the database 
+// Configuration the database
 const dbConfig = require('./app/config/mongodb.config.js');
 const mongoose = require('mongoose');
 
+app.use(cors());
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
-mongoose.connect(dbConfig.url)
+mongoose.connect(dbConfig.url, { useNewUrlParser: true })
 .then(() => {
 	console.log("Successfully connected to MongoDB.");
 }).catch(err => {
@@ -27,8 +28,9 @@ mongoose.connect(dbConfig.url)
 });
 
 require('./app/route/devotion.route.js')(app);
+require('./app/route/church.lesson.route.js')(app);
 
-// Create a Server 
+// Create a Server
 var server = app.listen(8080, function(){
 	var host = server.address().address
 	var port = server.address().port
