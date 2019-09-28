@@ -3,6 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json())
 
+
+
 const cors = require('cors')
 // const corsOptions = {
 // 	origin:'http://localhost:8080/api/devotion',
