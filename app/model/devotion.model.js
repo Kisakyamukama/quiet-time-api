@@ -7,6 +7,7 @@ var devotionSchema = new Schema({
   body: String,
   published: Boolean,
   updated_date: { type: Date, default: Date.now},
+  created_date: { type: Date, default: new Date()}
 
 });
 
