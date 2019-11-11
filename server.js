@@ -10,8 +10,6 @@ app.use(bodyParser.json());
 app.use('/api/users', users);
 
 const path = require('path');
-
-
 const cors = require('cors')
 // const corsOptions = {
 // 	origin:'http://localhost:8080/api/devotion',
